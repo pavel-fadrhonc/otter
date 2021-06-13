@@ -18,11 +18,12 @@ namespace DefaultNamespace
         Joined
     }
 
-    public struct OtterInput
+    public class OtterInput
     {
         public bool LeftLeg;
         public bool RightLeg;
         public bool ReachHands;
+        public bool InputRead;
     }
 
     public enum EJoinedType
@@ -62,7 +63,7 @@ namespace DefaultNamespace
         public ParticleSystem rightLegRippleParticleSystem;
         public ParticleSystem leftLegRippleParticleSystem;
 
-        private OtterInput _input;
+        private OtterInput _input = new OtterInput();
 
         private EOtterState _otterState;
         public EOtterState OtterState
@@ -120,6 +121,8 @@ namespace DefaultNamespace
             
             rightHandSender.CollisionEnter2DEvent += OnRightHandTriggerEnterEvent;
             leftHandSender.CollisionEnter2DEvent += OnLeftHandTriggerEnterEvent;
+            
+            ReadInput();
         }
 
         public void SetJoining(OtterController withOtter, Transform otherConnectingTransform, Transform yourConnectionTransform)
@@ -176,7 +179,8 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            _input = GetInput();
+            if (_input.InputRead)
+                ReadInput();
         }
 
         private void FixedUpdate()
@@ -258,6 +262,8 @@ namespace DefaultNamespace
 
                     break;
             }
+
+            _input.InputRead = true;
         }
 
         private void ChangeState(EOtterState otterState)
@@ -278,7 +284,7 @@ namespace DefaultNamespace
             }
         }
 
-        private OtterInput GetInput()
+        private void ReadInput()
         {
             var leftLegControl = otterControlType == EOtterControlType.Otter1
                 ? _gameControls.otter1LeftLegControl
@@ -292,12 +298,10 @@ namespace DefaultNamespace
                 ? _gameControls.otter1HandReachControl
                 : _gameControls.otter2HandReachControl;
 
-            return new OtterInput()
-            {
-                LeftLeg = Input.GetKeyDown(leftLegControl),
-                RightLeg = Input.GetKeyDown(rightLegControl),
-                ReachHands = Input.GetKey(handReachControl)
-            };
+            _input.LeftLeg = Input.GetKeyDown(leftLegControl);
+            _input.RightLeg = Input.GetKeyDown(rightLegControl);
+            _input.ReachHands = Input.GetKey(handReachControl);
+            _input.InputRead = false;
         }
     
         private void ConnectHands(Transform ourConnectTransform, Transform theirConnectTransform, OtterController otherOtter)
