@@ -1,6 +1,5 @@
 ﻿using System;
 using o2f.Physics;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -143,9 +142,16 @@ namespace DefaultNamespace
 
         private void OnObstacleCollision(Collision2D collision, GameObject sender)
         {
+            GetHit();
+            if (_otherOtter != null)
+                _otherOtter.GetHit();
+            HitEvent?.Invoke();
+        }
+
+        public void GetHit()
+        {
             _breakingForceRestoreTime = Time.time + reducedBreakForceDuration;
             _connectJoint.breakForce = hitObstacleJointBreakForce;
-            HitEvent?.Invoke();
         }
 
         public void SetJoining(OtterController withOtter, Transform otherConnectingTransform, Transform yourConnectionTransform)

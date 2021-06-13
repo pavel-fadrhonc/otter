@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6960541583419033918}
   - component: {fileID: 6960541583419033919}
   - component: {fileID: 6960541583419034048}
-  m_Layer: 0
+  m_Layer: 27
   m_Name: river bank 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 6960541583885844085}
   - component: {fileID: 5983299906636231000}
   - component: {fileID: 3501569672701860832}
-  m_Layer: 0
+  m_Layer: 27
   m_Name: river bank 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
