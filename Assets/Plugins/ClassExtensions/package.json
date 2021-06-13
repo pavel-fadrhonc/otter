@@ -1,0 +1,13 @@
+{
+  "name": "com.oakus.frameworks.of2.classextensions",
+  "displayName": "of2 Class Extension",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Class extensions for native Unity and .net classes",
+  "category": "Unity",
+	"gitDependencies": {
+		"com.oakus.frameworks.of2.utils":"https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Utils#2.1.0"
+	}
+
+	
+}

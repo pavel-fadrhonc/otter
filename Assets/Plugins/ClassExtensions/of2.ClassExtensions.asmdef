@@ -1,0 +1,15 @@
+{
+    "name": "of2.ClassExtensions",
+    "references": [
+        "GUID:5a47ddb90df5df94884a08e2d9a36e78"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

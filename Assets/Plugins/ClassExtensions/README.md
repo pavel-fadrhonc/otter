@@ -1,0 +1,1 @@
+## Usefull class extensions

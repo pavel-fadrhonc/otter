@@ -1,0 +1,17 @@
+{
+    "name": "of2.Utils.TagSelector.Editor",
+    "references": [
+        "GUID:6e0783f955992564b9b52de03c39fc88"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

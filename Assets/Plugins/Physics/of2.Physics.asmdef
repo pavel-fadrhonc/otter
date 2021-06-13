@@ -1,0 +1,18 @@
+{
+    "name": "of2.Physics",
+    "references": [
+        "GUID:9b2c24e170966eb46b1b024237dd0e51",
+        "GUID:6e0783f955992564b9b52de03c39fc88",
+        "GUID:47eb96f0582a3ec45971c569acb5f6a8",
+        "GUID:687a5d06c10318840b6636db30d4a231"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,10 @@
+{
+  "name": "com.oakus.frameworks.of2.basemono",
+  "displayName": "of2 Base Mono",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Base Mono classes for some of2 Mono scripts",
+  "category": "Unity"
+	
+	
+}
