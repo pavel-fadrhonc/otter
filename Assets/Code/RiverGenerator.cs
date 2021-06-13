@@ -10,6 +10,7 @@ namespace DefaultNamespace
     public class RiverGenerator : MonoBehaviour
     {
         public List<GameObject> shorePrefabs = new List<GameObject>();
+        public List<GameObject> obstaclePrefabs = new List<GameObject>();
 
         public int generateAtStart;
 
@@ -21,6 +22,7 @@ namespace DefaultNamespace
         public float lookBehind;
 
         private List<GameObject> generatedShores = new List<GameObject>();
+        private List<Transform> generatedObstacles = new List<Transform>(); // parents
 
         private Camera _mainCamera;
 
@@ -35,7 +37,9 @@ namespace DefaultNamespace
         {
             for (int i = 0; i < generateAtStart; i++)
             {
-                GenerateShore();
+                var furthestPoint = GetFurthestPoint();
+                GenerateShore(furthestPoint);
+                GenerateObstacles(furthestPoint);
             }
         }
 
@@ -48,21 +52,29 @@ namespace DefaultNamespace
             var cameraTopY = _mainCamera.transform.position.y + _mainCamera.orthographicSize;
             var furthestPoint = GetFurthestPoint();
 
-            if (furthestPoint.y - lookAhead <  cameraTopY)
-                GenerateShore();
+            if (furthestPoint.y - lookAhead < cameraTopY)
+            {
+                GenerateShore(furthestPoint);
+                GenerateObstacles(furthestPoint);
+            }
 
             _nextCheckTime = Time.time + checkPeriod;
         }
 
-        private void GenerateShore()
+        private void GenerateShore(Vector3 atPoint)
         {
-            var furthestPoint = GetFurthestPoint();
-            
-            DebugDraw.DrawMarker(furthestPoint, 0.5f, Color.red,  5f);
+            DebugDraw.DrawMarker(atPoint, 0.5f, Color.red,  5f);
 
-            var shoreInstance = Instantiate(shorePrefabs.Random(), furthestPoint, quaternion.identity);
+            var shoreInstance = Instantiate(shorePrefabs.Random(), atPoint, quaternion.identity);
 
             generatedShores.Add(shoreInstance);
+        }
+
+        private void GenerateObstacles(Vector3 atPoint)
+        {
+            var obstacleInstance = Instantiate(obstaclePrefabs.Random(), atPoint, Quaternion.identity);
+            
+            generatedObstacles.Add(obstacleInstance.transform);
         }
 
         private Vector3 GetFurthestPoint()
