@@ -64,6 +64,22 @@ namespace DefaultNamespace
                 GenerateObstacles(furthestPoint);
             }
 
+            if (generatedShores.Count > 0)
+            {
+                var cameraBottomY = _mainCamera.transform.position.y - _mainCamera.orthographicSize;
+                var firstShore = generatedShores[0];
+                var firstObstacle = generatedObstacles[0];
+                var mostBehindPoint = generatedShores[0].transform.position;
+                if (mostBehindPoint.y < cameraBottomY - lookBehind)
+                {
+                    generatedShores.Remove(firstShore);
+                    generatedObstacles.Remove(firstObstacle);
+                    
+                    GameObject.Destroy(firstShore);
+                    GameObject.Destroy(firstObstacle.gameObject);
+                }
+            }
+
             _nextCheckTime = Time.time + checkPeriod;
         }
 

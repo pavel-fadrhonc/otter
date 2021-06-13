@@ -13,11 +13,15 @@ namespace DefaultNamespace
 
         [Tooltip("what fraction of strength and what is the target speed for when otter is perpendicular to river stream direction.")]
         public float strengthFractionWhenPerpendicular = 0.5f;
+
+        public float speedMultiplierWhenBehind = 4.0f;
         
         private Rigidbody2D _otter1rb;
         private Rigidbody2D _otter2rb;
 
         private Vector2 _riverVector;
+
+        private Camera _mainCamera;
         
         private void Start()
         {
@@ -25,6 +29,8 @@ namespace DefaultNamespace
             _otter2rb = Locator.Instance.Otter2.Rigidbody2D;
 
             _riverVector = transform.up;
+            
+            _mainCamera = Camera.main;
         }
 
         private void FixedUpdate()
@@ -42,6 +48,12 @@ namespace DefaultNamespace
             var otterTargetSpeed =
                 Mathf.Lerp(targetSpeed * strengthFractionWhenPerpendicular, targetSpeed, otterRiverDot);
             var otterRiverStrength = Mathf.Lerp(strength * strengthFractionWhenPerpendicular, strength, otterRiverDot);
+
+            if (rb.transform.position.y < _mainCamera.transform.position.y - _mainCamera.orthographicSize)
+                otterRiverStrength *= speedMultiplierWhenBehind;
+
+            if (rb.transform.position.y > _mainCamera.transform.position.y + _mainCamera.orthographicSize)
+                otterRiverStrength = 0;
             
             if (projVect1.magnitude < otterTargetSpeed)
                 rb.AddForce(_riverVector * otterRiverStrength * Time.fixedDeltaTime, ForceMode2D.Force);
