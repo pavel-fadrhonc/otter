@@ -1,7 +1,61 @@
 fileFormatVersion: 2
 guid: e24ff4d71711f724bafe1f74b19da12d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2194637932375958850
+    second: water lilies psd_0
+  - first:
+      213: 4068782900217194699
+    second: water lilies psd_1
+  - first:
+      213: 2543959692653932387
+    second: water lilies psd_2
+  - first:
+      213: 63702623705200356
+    second: water lilies psd_3
+  - first:
+      213: 6521493358718179852
+    second: water lilies psd_4
+  - first:
+      213: 5210764449482718171
+    second: water lilies psd_5
+  - first:
+      213: -5242825456434853157
+    second: water lilies psd_6
+  - first:
+      213: 8436652655626470785
+    second: water lilies psd_7
+  - first:
+      213: 2594010954152682932
+    second: water lilies psd_8
+  - first:
+      213: -8136562442340039107
+    second: water lilies psd_9
+  - first:
+      213: 8398987500909108916
+    second: water lilies psd_10
+  - first:
+      213: -2494708874486210048
+    second: water lilies psd_11
+  - first:
+      213: 2773005498144646604
+    second: water lilies psd_12
+  - first:
+      213: -3059485198128943516
+    second: water lilies psd_13
+  - first:
+      213: 4745830711126813791
+    second: water lilies psd_14
+  - first:
+      213: -8693774082921200531
+    second: water lilies psd_15
+  - first:
+      213: 805918865985536719
+    second: water lilies psd_16
+  - first:
+      213: 4683531909636074789
+    second: water lilies psd_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +95,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +129,423 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: water lilies psd_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1631
+        width: 267
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245edd1629be47e10800000000000000
+      internalID: 2194637932375958850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_1
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1631
+        width: 301
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc821ab8d78377830800000000000000
+      internalID: 4068782900217194699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_2
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1636
+        width: 301
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fac8bacd5fd4320800000000000000
+      internalID: 2543959692653932387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_3
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 1628
+        width: 267
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e67531e23152e000800000000000000
+      internalID: 63702623705200356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_4
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 1622
+        width: 248
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a577b48aff08a50800000000000000
+      internalID: 6521493358718179852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1301
+        width: 301
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdbb6a3b8aa505840800000000000000
+      internalID: 5210764449482718171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_6
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 1297
+        width: 278
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda43d9660ebd37b0800000000000000
+      internalID: -5242825456434853157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_7
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 1294
+        width: 303
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185c8f714e2051570800000000000000
+      internalID: 8436652655626470785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1137
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b52eb91837cff320800000000000000
+      internalID: 2594010954152682932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1002
+        width: 267
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36898b619f151f80800000000000000
+      internalID: -8136562442340039107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_10
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 986
+        width: 278
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be12a0e1a23f8470800000000000000
+      internalID: 8398987500909108916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_11
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 975
+        width: 301
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0022c360f73016dd0800000000000000
+      internalID: -2494708874486210048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 652
+        width: 294
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5ed1dfec1bb7620800000000000000
+      internalID: 2773005498144646604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_13
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 647
+        width: 296
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e65f11c668a85d0800000000000000
+      internalID: -3059485198128943516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_14
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 634
+        width: 297
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c6ad423e39cd140800000000000000
+      internalID: 4745830711126813791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_15
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 194
+        width: 437
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d640cfd7882895780800000000000000
+      internalID: -8693774082921200531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_16
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 226
+        width: 327
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc28adc40f23f2b00800000000000000
+      internalID: 805918865985536719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water lilies psd_17
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 223
+        width: 319
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52da018157f3ff040800000000000000
+      internalID: 4683531909636074789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -90,7 +558,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
