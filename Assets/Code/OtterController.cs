@@ -14,8 +14,8 @@ namespace DefaultNamespace
     public enum EOtterState
     {
         Separate,
-        Connecting,
-        Connected
+        Joining,
+        Joined
     }
 
     public struct OtterInput
@@ -23,6 +23,12 @@ namespace DefaultNamespace
         public bool LeftLeg;
         public bool RightLeg;
         public bool ReachHands;
+    }
+
+    public enum EJoinedType
+    {
+        Left,
+        Right
     }
     
     public class OtterController : UnityEngine.MonoBehaviour
@@ -56,11 +62,19 @@ namespace DefaultNamespace
         public ParticleSystem rightLegRippleParticleSystem;
         public ParticleSystem leftLegRippleParticleSystem;
 
+        private OtterInput _input;
+
         private EOtterState _otterState;
         public EOtterState OtterState
         {
             get => _otterState;
             private set => _otterState = value;
+        }
+
+        public EJoinedType JoinedType
+        {
+            get;
+            set;
         }
 
         private Transform _otherConnectingTransform;
@@ -108,17 +122,18 @@ namespace DefaultNamespace
             leftHandSender.CollisionEnter2DEvent += OnLeftHandTriggerEnterEvent;
         }
 
-        public void SetConnecting(OtterController withOtter, Transform otherConnectingTransform, Transform yourConnectionTransform)
+        public void SetJoining(OtterController withOtter, Transform otherConnectingTransform, Transform yourConnectionTransform)
         {
             _otherOtter = withOtter;
             _otherConnectingTransform = otherConnectingTransform;
             _thisConnectingTransform = yourConnectionTransform;
-            ChangeState(EOtterState.Connecting);
+            ChangeState(EOtterState.Joining);
         }
 
-        public void SetConnected(bool configureJoint, Transform thisConnectingTransform, Transform otherConnectingTransform, OtterController otherOtter)
+        public void SetJoined(bool configureJoint, Transform thisConnectingTransform, Transform otherConnectingTransform, OtterController otherOtter, EJoinedType joinedType)
         {
-            ChangeState(EOtterState.Connected);
+            ChangeState(EOtterState.Joined);
+            JoinedType = joinedType;
 
             if (configureJoint)
             {
@@ -159,22 +174,25 @@ namespace DefaultNamespace
             ConnectHands(handTransform, theirCollider.transform,otter);            
         }
 
+        private void Update()
+        {
+            _input = GetInput();
+        }
+
         private void FixedUpdate()
         {
-            var input = GetInput();
-            
             switch (OtterState)
             {
                 case EOtterState.Separate:
 
-                    if (input.LeftLeg)
+                    if (_input.LeftLeg)
                     {
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _animator.SetTrigger(LeftLegSwimAnimParamName);
                         leftLegRippleParticleSystem.Play();
                     }
 
-                    if (input.RightLeg)
+                    if (_input.RightLeg)
                     {
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
                         _animator.SetTrigger(RightLegSwimAnimParamName);
@@ -182,7 +200,7 @@ namespace DefaultNamespace
                     }
 
                     // evaluate hands
-                    if (input.ReachHands)
+                    if (_input.ReachHands)
                     {
                         rightHandSender.Enabled = leftHandSender.Enabled = true;
                         _reachHandParamValue = Mathf.Min(_reachHandParamValue + reachHandAnimSpeed * Time.deltaTime, 1.0f);
@@ -197,18 +215,40 @@ namespace DefaultNamespace
 
                     break;
                 
-                case EOtterState.Connected:
-                    //input
+                case EOtterState.Joined:
+                    if (JoinedType == EJoinedType.Left && _input.LeftLeg)
+                    {
+                        _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
+                        _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
+                        
+                        _animator.SetTrigger(LeftLegSwimAnimParamName);
+                        _animator.SetTrigger(RightLegSwimAnimParamName);
+                        
+                        leftLegRippleParticleSystem.Play();
+                        rightLegRippleParticleSystem.Play();
+                    }
+                    else if (JoinedType == EJoinedType.Right && _input.RightLeg)
+                    {
+                        _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
+                        _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
+                        
+                        _animator.SetTrigger(LeftLegSwimAnimParamName);
+                        _animator.SetTrigger(RightLegSwimAnimParamName);
+                        
+                        leftLegRippleParticleSystem.Play();
+                        rightLegRippleParticleSystem.Play();
+                    }
+
                     break;
                 
-                case EOtterState.Connecting:
+                case EOtterState.Joining:
                     _rigidbody.AddForceAtPosition(((Vector2) (OtherConnectingTransform.position - _thisConnectingTransform.position)).normalized * connectingForce * Time.fixedDeltaTime, _thisConnectingTransform.position, ForceMode2D.Force);
                     var connectingTransformDistance =
                         (OtherConnectingTransform.position - _thisConnectingTransform.position).magnitude;
                     if (connectingTransformDistance < handToleranceForHolding)
                     {
-                        SetConnected(true, _thisConnectingTransform, _otherConnectingTransform, _otherOtter);
-                        _otherOtter.SetConnected(false, _otherConnectingTransform, _thisConnectingTransform, this);
+                        // SetJoined(true, _thisConnectingTransform, _otherConnectingTransform, _otherOtter);
+                        // _otherOtter.SetJoined(false, _otherConnectingTransform, _thisConnectingTransform, this);
                     }
                     else if (connectingTransformDistance > connectingBreakDistance)
                     {
@@ -227,10 +267,10 @@ namespace DefaultNamespace
             {
                 case EOtterState.Separate:
                     break;
-                case EOtterState.Connecting:
+                case EOtterState.Joining:
                     rightHandSender.Enabled = leftHandSender.Enabled = false;
                     break;
-                case EOtterState.Connected:
+                case EOtterState.Joined:
 
                     break;
                 default:
@@ -265,8 +305,14 @@ namespace DefaultNamespace
             _thisConnectingTransform = ourConnectTransform;
 
             _otherOtter = otherOtter;
-            SetConnected(true, ourConnectTransform, theirConnectTransform, otherOtter);
-            otherOtter.SetConnected(false, theirConnectTransform, ourConnectTransform, this);
+
+            var thisJoinedType = transform.position.x < otherOtter.transform.position.x
+                ? EJoinedType.Left
+                : EJoinedType.Right;
+            var otherJoinedType = thisJoinedType == EJoinedType.Right ? EJoinedType.Left : EJoinedType.Right; 
+            
+            SetJoined(true, ourConnectTransform, theirConnectTransform, otherOtter, thisJoinedType);
+            otherOtter.SetJoined(false, theirConnectTransform, ourConnectTransform, this, otherJoinedType);
             
             // SetConnecting(otherOtter, theirConnectTransform, ourConnectTransform);
             // otherOtter.SetConnecting(this, ourConnectTransform, theirConnectTransform);
@@ -277,6 +323,7 @@ namespace DefaultNamespace
             joint2D.enabled = false;
             joint2D.autoConfigureConnectedAnchor = false;
             joint2D.breakForce = jointBreakingForce;
+            joint2D.enableCollision = true;
         }
     }
 }

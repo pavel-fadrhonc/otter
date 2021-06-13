@@ -37,7 +37,7 @@ namespace DefaultNamespace
         {
             var projVect1 = (Vector2.Dot(rb.velocity, _riverVector) / _riverVector.magnitude) * _riverVector;
 
-            var otterRiverDot = Vector2.Dot(rb.transform.up, _riverVector);
+            var otterRiverDot = Mathf.Abs(Vector2.Dot(rb.transform.up, _riverVector));
 
             var otterTargetSpeed =
                 Mathf.Lerp(targetSpeed * strengthFractionWhenPerpendicular, targetSpeed, otterRiverDot);
