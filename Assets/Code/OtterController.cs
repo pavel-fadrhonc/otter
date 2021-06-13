@@ -192,6 +192,7 @@ namespace DefaultNamespace
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _animator.SetTrigger(LeftLegSwimAnimParamName);
                         leftLegRippleParticleSystem.Play();
+                        Locator.Instance.AudioManager.PlaySplashSound();
                     }
 
                     if (_input.RightLeg)
@@ -199,6 +200,7 @@ namespace DefaultNamespace
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
                         _animator.SetTrigger(RightLegSwimAnimParamName);
                         rightLegRippleParticleSystem.Play();
+                        Locator.Instance.AudioManager.PlaySplashSound();
                     }
 
                     // evaluate hands
@@ -228,6 +230,8 @@ namespace DefaultNamespace
                         
                         leftLegRippleParticleSystem.Play();
                         rightLegRippleParticleSystem.Play();
+                        
+                        Locator.Instance.AudioManager.PlaySplashSound();
                     }
                     else if (JoinedType == EJoinedType.Right && _input.RightLeg)
                     {
@@ -239,6 +243,8 @@ namespace DefaultNamespace
                         
                         leftLegRippleParticleSystem.Play();
                         rightLegRippleParticleSystem.Play();
+                        
+                        Locator.Instance.AudioManager.PlaySplashSound();
                     }
 
                     break;

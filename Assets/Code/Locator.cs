@@ -10,6 +10,8 @@ namespace DefaultNamespace
 
         public OtterController Otter1 { get; private set; }
         public OtterController Otter2 { get; private set; }
+        
+        public AudioManager AudioManager { get; private set; }
 
         private static Locator _instance;
         public static Locator Instance
@@ -38,6 +40,7 @@ namespace DefaultNamespace
         {
             Otter1 = FindObjectsOfType<OtterController>().First(o => o.otterControlType == EOtterControlType.Otter1);
             Otter2 = FindObjectsOfType<OtterController>().First(o => o.otterControlType == EOtterControlType.Otter2);
+            AudioManager = FindObjectOfType<AudioManager>();
         }
     }
 }
