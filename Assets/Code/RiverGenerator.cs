@@ -12,6 +12,7 @@ namespace DefaultNamespace
         public List<GameObject> shorePrefabs = new List<GameObject>();
         public List<GameObject> obstaclePrefabs = new List<GameObject>();
 
+        public GameObject firstObstacle;
         public int generateAtStart;
 
         public float checkPeriod = 0.3f; 
@@ -35,11 +36,16 @@ namespace DefaultNamespace
 
         private void Start()
         {
+            var obstacleInstance = Instantiate(firstObstacle, GetFurthestPoint(), Quaternion.identity);
+            generatedObstacles.Add(obstacleInstance.transform);
+
             for (int i = 0; i < generateAtStart; i++)
             {
                 var furthestPoint = GetFurthestPoint();
                 GenerateShore(furthestPoint);
-                GenerateObstacles(furthestPoint);
+                
+                if (i > 0)
+                    GenerateObstacles(furthestPoint);
             }
         }
 

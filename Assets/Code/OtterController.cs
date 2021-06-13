@@ -33,6 +33,9 @@ namespace DefaultNamespace
     
     public class OtterController : UnityEngine.MonoBehaviour
     {
+        public event Action MovedEvent;
+        public event Action HitEvent;
+        
         [Header("Settings")]
         public float rotateStrength;
 
@@ -193,6 +196,7 @@ namespace DefaultNamespace
                         _animator.SetTrigger(LeftLegSwimAnimParamName);
                         leftLegRippleParticleSystem.Play();
                         Locator.Instance.AudioManager.PlaySplashSound();
+                        MovedEvent?.Invoke();
                     }
 
                     if (_input.RightLeg)
@@ -201,6 +205,7 @@ namespace DefaultNamespace
                         _animator.SetTrigger(RightLegSwimAnimParamName);
                         rightLegRippleParticleSystem.Play();
                         Locator.Instance.AudioManager.PlaySplashSound();
+                        MovedEvent?.Invoke();
                     }
 
                     // evaluate hands
@@ -232,6 +237,8 @@ namespace DefaultNamespace
                         rightLegRippleParticleSystem.Play();
                         
                         Locator.Instance.AudioManager.PlaySplashSound();
+                        
+                        MovedEvent?.Invoke();
                     }
                     else if (JoinedType == EJoinedType.Right && _input.RightLeg)
                     {
@@ -245,6 +252,8 @@ namespace DefaultNamespace
                         rightLegRippleParticleSystem.Play();
                         
                         Locator.Instance.AudioManager.PlaySplashSound();
+                        
+                        MovedEvent?.Invoke();
                     }
 
                     break;

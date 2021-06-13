@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7655147039535944913, guid: 4d8a1d2d943eca0458a45aff48a3673c, type: 3}
+      propertyPath: m_Layer
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 7655147039535944914, guid: 4d8a1d2d943eca0458a45aff48a3673c, type: 3}
       propertyPath: m_Sprite
       value: 
