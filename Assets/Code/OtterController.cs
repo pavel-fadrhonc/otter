@@ -23,7 +23,6 @@ namespace DefaultNamespace
         public bool LeftLeg;
         public bool RightLeg;
         public bool ReachHands;
-        public bool InputRead;
     }
 
     public enum EJoinedType
@@ -179,8 +178,7 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (_input.InputRead)
-                ReadInput();
+            ReadInput();
         }
 
         private void FixedUpdate()
@@ -263,7 +261,9 @@ namespace DefaultNamespace
                     break;
             }
 
-            _input.InputRead = true;
+            _input.LeftLeg = false;
+            _input.RightLeg = false;
+            _input.ReachHands = false;
         }
 
         private void ChangeState(EOtterState otterState)
@@ -298,10 +298,18 @@ namespace DefaultNamespace
                 ? _gameControls.otter1HandReachControl
                 : _gameControls.otter2HandReachControl;
 
-            _input.LeftLeg = Input.GetKeyDown(leftLegControl);
-            _input.RightLeg = Input.GetKeyDown(rightLegControl);
-            _input.ReachHands = Input.GetKey(handReachControl);
-            _input.InputRead = false;
+            var leftLeg = Input.GetKeyDown(leftLegControl);
+            var rightLeg = Input.GetKeyDown(rightLegControl);
+            var reachHands = Input.GetKeyDown(handReachControl);
+
+            if (leftLeg && !_input.LeftLeg)
+                _input.LeftLeg = true;
+
+            if (rightLeg && !_input.RightLeg)
+                _input.RightLeg = true;
+
+            if (reachHands && !_input.ReachHands)
+                _input.ReachHands = true;
         }
     
         private void ConnectHands(Transform ourConnectTransform, Transform theirConnectTransform, OtterController otherOtter)
