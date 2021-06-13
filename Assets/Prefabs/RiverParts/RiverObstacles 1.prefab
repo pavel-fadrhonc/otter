@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9000548983174691473}
   m_Layer: 0
-  m_Name: RiverObstacles
+  m_Name: RiverObstacles 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -45,8 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shorePrefabs:
   - {fileID: 6960541584629331297, guid: eb9ca979f4bcdde48a123c59f8a24652, type: 3}
+  - {fileID: 6960541584629331297, guid: 2bb3f93abb35ce742968a4c7864a9e2d, type: 3}
+  - {fileID: 6960541584629331297, guid: f67757ebf7beab24888b9d5e8b16e007, type: 3}
   obstaclePrefabs:
   - {fileID: 9000548983174691472, guid: 09d32a17af4a25f47a3564df572f8717, type: 3}
+  - {fileID: 9000548983174691472, guid: f470089186ba60842847976c02e07ee6, type: 3}
+  - {fileID: 9000548983174691472, guid: 89b4e56f68c569f4194db7dfe16de782, type: 3}
   generateAtStart: 4
   checkPeriod: 0.3
   lookAhead: 5
