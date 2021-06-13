@@ -10,6 +10,9 @@ namespace DefaultNamespace
         public float strength;
         [Tooltip("Target speed when reached, not strength is applied anymore.")]
         public float targetSpeed;
+
+        [Tooltip("what fraction of strength and what is the target speed for when otter is perpendicular to river stream direction.")]
+        public float strengthFractionWhenPerpendicular = 0.5f;
         
         private Rigidbody2D _otter1rb;
         private Rigidbody2D _otter2rb;
@@ -33,8 +36,15 @@ namespace DefaultNamespace
         private void EvaluateRiverStrength(Rigidbody2D rb)
         {
             var projVect1 = (Vector2.Dot(rb.velocity, _riverVector) / _riverVector.magnitude) * _riverVector;
-            if (projVect1.magnitude < targetSpeed)
-                rb.AddForce(_riverVector * strength * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            var otterRiverDot = Vector2.Dot(rb.transform.up, _riverVector);
+
+            var otterTargetSpeed =
+                Mathf.Lerp(targetSpeed * strengthFractionWhenPerpendicular, targetSpeed, otterRiverDot);
+            var otterRiverStrength = Mathf.Lerp(strength * strengthFractionWhenPerpendicular, strength, otterRiverDot);
+            
+            if (projVect1.magnitude < otterTargetSpeed)
+                rb.AddForce(_riverVector * otterRiverStrength * Time.fixedDeltaTime, ForceMode2D.Force);
         }
     }
 }

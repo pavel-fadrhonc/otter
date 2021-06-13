@@ -17,6 +17,13 @@ namespace DefaultNamespace
         Connecting,
         Connected
     }
+
+    public struct OtterInput
+    {
+        public bool LeftLeg;
+        public bool RightLeg;
+        public bool ReachHands;
+    }
     
     public class OtterController : UnityEngine.MonoBehaviour
     {
@@ -35,6 +42,9 @@ namespace DefaultNamespace
         public float connectingBreakDistance;
 
         public EOtterControlType otterControlType;
+
+        [Header("Joint setup")] 
+        public float jointBreakingForce;
         
         [Header("References")]
         public Transform rightLegForcePoint;
@@ -42,6 +52,9 @@ namespace DefaultNamespace
 
         public CollisionEventSender rightHandSender;
         public CollisionEventSender leftHandSender;
+
+        public ParticleSystem rightLegRippleParticleSystem;
+        public ParticleSystem leftLegRippleParticleSystem;
 
         private EOtterState _otterState;
         public EOtterState OtterState
@@ -79,6 +92,8 @@ namespace DefaultNamespace
             _connectJoint = GetComponent<HingeJoint2D>();
             _animator = GetComponentInChildren<Animator>();
 
+            SetupJoint(_connectJoint);
+
             //_connectJoint.enabled = false;
         }
 
@@ -115,10 +130,19 @@ namespace DefaultNamespace
                 rightHandSender.Enabled = leftHandSender.Enabled = false;
             }
         }
+
+        private void OnJointBreak2D(Joint2D joint2D)
+        {
+            // regenerate joint
+            _connectJoint = gameObject.AddComponent<HingeJoint2D>();
+            SetupJoint(_connectJoint);
+            ChangeState(EOtterState.Separate);
+            _otherOtter.ChangeState(EOtterState.Separate);
+        }
         
         private void OnRightHandTriggerEnterEvent(Collision2D col, GameObject sender)
         {
-            ProcessHandCollision(leftHandSender.transform, col.collider);
+            ProcessHandCollision(rightHandSender.transform, col.collider);
         }
         
         private void OnLeftHandTriggerEnterEvent(Collision2D col, GameObject sender)
@@ -137,35 +161,28 @@ namespace DefaultNamespace
 
         private void FixedUpdate()
         {
+            var input = GetInput();
+            
             switch (OtterState)
             {
                 case EOtterState.Separate:
-                    var leftLegControl = otterControlType == EOtterControlType.Otter1
-                        ? _gameControls.otter1LeftLegControl
-                        : _gameControls.otter2LeftLegControl;
-                
-                    var rightLegControl = otterControlType == EOtterControlType.Otter1
-                        ? _gameControls.otter1RightLegControl
-                        : _gameControls.otter2RightLegControl;
 
-                    var handReachControl = otterControlType == EOtterControlType.Otter1
-                        ? _gameControls.otter1HandReachControl
-                        : _gameControls.otter2HandReachControl;
-
-                    if (Input.GetKeyDown(leftLegControl))
+                    if (input.LeftLeg)
                     {
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _animator.SetTrigger(LeftLegSwimAnimParamName);
+                        leftLegRippleParticleSystem.Play();
                     }
 
-                    if (Input.GetKeyDown(rightLegControl))
+                    if (input.RightLeg)
                     {
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
                         _animator.SetTrigger(RightLegSwimAnimParamName);
+                        rightLegRippleParticleSystem.Play();
                     }
 
                     // evaluate hands
-                    if (Input.GetKey(handReachControl))
+                    if (input.ReachHands)
                     {
                         rightHandSender.Enabled = leftHandSender.Enabled = true;
                         _reachHandParamValue = Mathf.Min(_reachHandParamValue + reachHandAnimSpeed * Time.deltaTime, 1.0f);
@@ -181,6 +198,7 @@ namespace DefaultNamespace
                     break;
                 
                 case EOtterState.Connected:
+                    //input
                     break;
                 
                 case EOtterState.Connecting:
@@ -220,15 +238,45 @@ namespace DefaultNamespace
             }
         }
 
+        private OtterInput GetInput()
+        {
+            var leftLegControl = otterControlType == EOtterControlType.Otter1
+                ? _gameControls.otter1LeftLegControl
+                : _gameControls.otter2LeftLegControl;
+                
+            var rightLegControl = otterControlType == EOtterControlType.Otter1
+                ? _gameControls.otter1RightLegControl
+                : _gameControls.otter2RightLegControl;
+
+            var handReachControl = otterControlType == EOtterControlType.Otter1
+                ? _gameControls.otter1HandReachControl
+                : _gameControls.otter2HandReachControl;
+
+            return new OtterInput()
+            {
+                LeftLeg = Input.GetKeyDown(leftLegControl),
+                RightLeg = Input.GetKeyDown(rightLegControl),
+                ReachHands = Input.GetKey(handReachControl)
+            };
+        }
+    
         private void ConnectHands(Transform ourConnectTransform, Transform theirConnectTransform, OtterController otherOtter)
         {
             _thisConnectingTransform = ourConnectTransform;
-            
+
+            _otherOtter = otherOtter;
             SetConnected(true, ourConnectTransform, theirConnectTransform, otherOtter);
             otherOtter.SetConnected(false, theirConnectTransform, ourConnectTransform, this);
             
             // SetConnecting(otherOtter, theirConnectTransform, ourConnectTransform);
             // otherOtter.SetConnecting(this, ourConnectTransform, theirConnectTransform);
+        }
+
+        private void SetupJoint(HingeJoint2D joint2D)
+        {
+            joint2D.enabled = false;
+            joint2D.autoConfigureConnectedAnchor = false;
+            joint2D.breakForce = jointBreakingForce;
         }
     }
 }
