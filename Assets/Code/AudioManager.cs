@@ -24,6 +24,8 @@ namespace DefaultNamespace
         private List<AudioSource> usedAudioSources = new List<AudioSource>();
         private List<AudioSource> freeAudioSources = new List<AudioSource>();
 
+        private AudioSource _megaChillMusicAudioSource;
+
         private int _lastIdx = 0;
 
         private float _lastSplashPlayTime;
@@ -54,7 +56,7 @@ namespace DefaultNamespace
             _lastSplashPlayTime = Time.time;
         }
 
-        public void PlayAudio(AudioClip clip, float volume, float pitch = 1.0f, bool loop = false)
+        public AudioSource PlayAudio(AudioClip clip, float volume, float pitch = 1.0f, bool loop = false)
         {
             if (freeAudioSources.Count == 0)
                 SpawnAudioClip();
@@ -69,6 +71,8 @@ namespace DefaultNamespace
 
             freeAudioSources.Remove(audioSource);
             usedAudioSources.Add(audioSource);
+
+            return audioSource;
         }
 
         private void SpawnAudioClip()

@@ -44,16 +44,24 @@ namespace DefaultNamespace
 
         public float reachHandAnimSpeed = 1.0f;
 
+        public float reducedBreakForceWhenObstacleHit;
+
+        [Tooltip("how long we have reduced break force when we hit obstacle.")]
+        public float reducedBreakForceDuration = 2f;
+
         [HideInInspector][Tooltip("How far is ok for hands to be apart from each other in order for otters to hold hands and join.")]
         public float handToleranceForHolding;
 
         [HideInInspector][Tooltip("When connecting and further than this distance from each other we return to Separate state.")]
         public float connectingBreakDistance;
+        
+        
 
         public EOtterControlType otterControlType;
 
         [Header("Joint setup")] 
         public float jointBreakingForce;
+        public float hitObstacleJointBreakForce = 0.1f;
         
         [Header("References")]
         public Transform rightLegForcePoint;
@@ -64,6 +72,8 @@ namespace DefaultNamespace
 
         public ParticleSystem rightLegRippleParticleSystem;
         public ParticleSystem leftLegRippleParticleSystem;
+
+        public CollisionEventSender obstacleCollisionEventSender;
 
         private OtterInput _input = new OtterInput();
 
@@ -99,6 +109,8 @@ namespace DefaultNamespace
         private Animator _animator;
         private float _reachHandParamValue;
 
+        private float _breakingForceRestoreTime;
+
         private const string ReachHandsAnimParamName = "ReachHands";
         private const string LeftLegSwimAnimParamName = "LeftLegSwim";
         private const string RightLegSwimAnimParamName = "RightLegSwim";
@@ -124,7 +136,16 @@ namespace DefaultNamespace
             rightHandSender.CollisionEnter2DEvent += OnRightHandTriggerEnterEvent;
             leftHandSender.CollisionEnter2DEvent += OnLeftHandTriggerEnterEvent;
             
+            obstacleCollisionEventSender.CollisionEnter2DEvent += OnObstacleCollision;
+            
             ReadInput();
+        }
+
+        private void OnObstacleCollision(Collision2D collision, GameObject sender)
+        {
+            _breakingForceRestoreTime = Time.time + reducedBreakForceDuration;
+            _connectJoint.breakForce = hitObstacleJointBreakForce;
+            HitEvent?.Invoke();
         }
 
         public void SetJoining(OtterController withOtter, Transform otherConnectingTransform, Transform yourConnectionTransform)
@@ -182,6 +203,11 @@ namespace DefaultNamespace
         private void Update()
         {
             ReadInput();
+
+            if (Time.time > _breakingForceRestoreTime)
+            {
+                _connectJoint.breakForce = jointBreakingForce;
+            }
         }
 
         private void FixedUpdate()

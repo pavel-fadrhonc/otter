@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7655147039535944913, guid: feef2f548e59e7449a3c6988803daf1a, type: 3}
+      propertyPath: m_Layer
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 7655147039535944925, guid: feef2f548e59e7449a3c6988803daf1a, type: 3}
       propertyPath: m_RootOrder
       value: 0
