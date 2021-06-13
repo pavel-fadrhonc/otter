@@ -263,7 +263,7 @@ namespace DefaultNamespace
 
             _input.LeftLeg = false;
             _input.RightLeg = false;
-            _input.ReachHands = false;
+            //_input.ReachHands = false;
         }
 
         private void ChangeState(EOtterState otterState)
@@ -300,7 +300,7 @@ namespace DefaultNamespace
 
             var leftLeg = Input.GetKeyDown(leftLegControl);
             var rightLeg = Input.GetKeyDown(rightLegControl);
-            var reachHands = Input.GetKeyDown(handReachControl);
+            var reachHands = Input.GetKey(handReachControl);
 
             if (leftLeg && !_input.LeftLeg)
                 _input.LeftLeg = true;
@@ -308,8 +308,8 @@ namespace DefaultNamespace
             if (rightLeg && !_input.RightLeg)
                 _input.RightLeg = true;
 
-            if (reachHands && !_input.ReachHands)
-                _input.ReachHands = true;
+            //if (reachHands && !_input.ReachHands)
+                _input.ReachHands = reachHands;
         }
     
         private void ConnectHands(Transform ourConnectTransform, Transform theirConnectTransform, OtterController otherOtter)
