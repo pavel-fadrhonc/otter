@@ -1,0 +1,11 @@
+{
+    "name": "com.oakus.frameworks.of2.unirx",
+    "displayName": "of2 UniRx",
+    "version": "7.1.0",
+    "unity": "2018.3",
+    "description": "Reactive Extensions for Unity",
+    "license": "MIT",
+    "dependencies": {
+		"com.unity.textmeshpro": "3.0.1"
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "name": "com.oakus.frameworks.of2.debuglog",
+  "displayName": "of2 DebugLog",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Extended logging functionality",
+	"category": "Unity"
+}

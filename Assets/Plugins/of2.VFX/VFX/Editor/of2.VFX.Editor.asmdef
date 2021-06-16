@@ -1,0 +1,18 @@
+{
+    "name": "of2.VFX.Editor",
+    "references": [
+        "GUID:c21b10a68e7cd9143b0c471436bf18d4",
+        "GUID:9b2c24e170966eb46b1b024237dd0e51"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

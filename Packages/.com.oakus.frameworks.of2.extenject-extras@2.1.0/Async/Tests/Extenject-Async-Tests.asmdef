@@ -1,0 +1,24 @@
+{
+    "name": "Async.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a2f2239355369ba4fb6909aeaa41def5",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:2ef65aa1f0503be4b9ec2325f99c67af",
+        "GUID:2061fd7ebf33e094db3a76b9edbb1f84"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Zenject-usage.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

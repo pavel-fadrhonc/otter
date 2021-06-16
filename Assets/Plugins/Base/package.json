@@ -1,8 +1,0 @@
-{
-  "name": "com.oakus.frameworks.of2.base",
-  "displayName": "of2 Base",
-  "version": "2.1.0",
-  "unity": "2020.3",
-  "description": "Base classes and interface for of2 framework",
-	"category": "Unity"
-}

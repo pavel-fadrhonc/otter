@@ -1,0 +1,17 @@
+{
+  "name": "com.oakus.frameworks.of2.extenject-core",
+  "displayName": "of2 Extenject-Core",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Core scripts for Extenject framework modified by oakus",
+  "keywords": [
+    "dependency injection",
+    "unity"
+  ],
+	"category": "Unity",
+	
+		"gitDependencies": {
+		"com.oakus.frameworks.of2.unirx": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/UniRx#2.1.0"
+	}
+	
+}

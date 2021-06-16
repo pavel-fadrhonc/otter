@@ -9,7 +9,7 @@ namespace DefaultNamespace
 {
     public class RiverGenerator : MonoBehaviour
     {
-        public List<GameObject> shorePrefabs = new List<GameObject>();
+        public List<RiverPart> shorePrefabs = new List<RiverPart>();
         public List<GameObject> obstaclePrefabs = new List<GameObject>();
 
         public GameObject firstObstacle;
@@ -22,7 +22,7 @@ namespace DefaultNamespace
         [Tooltip("Recycle old shore when camera top further that this distance.")]
         public float lookBehind;
 
-        private List<GameObject> generatedShores = new List<GameObject>();
+        private List<RiverPart> generatedShores = new List<RiverPart>();
         private List<Transform> generatedObstacles = new List<Transform>(); // parents
 
         private Camera _mainCamera;
@@ -87,9 +87,12 @@ namespace DefaultNamespace
         {
             DebugDraw.DrawMarker(atPoint, 0.5f, Color.red,  5f);
 
-            var shoreInstance = Instantiate(shorePrefabs.Random(), atPoint, quaternion.identity);
+            var randomShorePrefab = shorePrefabs.Random();
 
-            generatedShores.Add(shoreInstance);
+            var shoreInstance = Instantiate(shorePrefabs.Random().gameObject, atPoint  - randomShorePrefab.riverPartStart.localPosition, quaternion.identity);
+            var riverPart = shoreInstance.GetComponent<RiverPart>();
+                
+            generatedShores.Add(riverPart);
         }
 
         private void GenerateObstacles(Vector3 atPoint)
@@ -105,15 +108,15 @@ namespace DefaultNamespace
                 return transform.position;
             
             var furthestShore = generatedShores.Last();
-            var rends = furthestShore.GetComponentsInChildren<Renderer>();
+            // var rends = furthestShore.GetComponentsInChildren<Renderer>();
+            //
+            // var totalBound = new Bounds(furthestShore.transform.position, Vector3.zero);
+            // foreach (var rend in rends)
+            // {
+            //     totalBound.Encapsulate(rend.bounds);
+            // }
 
-            var totalBound = new Bounds(furthestShore.transform.position, Vector3.zero);
-            foreach (var rend in rends)
-            {
-                totalBound.Encapsulate(rend.bounds);
-            }
-
-            var furthestPoint = furthestShore.transform.position + totalBound.size.y * Vector3.up;
+            var furthestPoint = furthestShore.riverPartEnd.position;
 
             return furthestPoint;
         }

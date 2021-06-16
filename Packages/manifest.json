@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.coffee.git-dependency-resolver": "https://github.com/mob-sakai/GitDependencyResolverForUnity.git",
+    "com.oakus.frameworks.of2.audio": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Audio#2.1.0",
+    "com.oakus.frameworks.of2.base": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Base#2.1.0",
+    "com.oakus.frameworks.of2.basemono": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/BaseMono#2.1.0",
+    "com.oakus.frameworks.of2.classextensions": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/ClassExtensions#2.1.0",
+    "com.oakus.frameworks.of2.debugtools": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/DebugTools#2.1.0",
+    "com.oakus.frameworks.of2.extenject-core": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Extenject-Core#2.1.0",
+    "com.oakus.frameworks.of2.physics": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Physics#2.1.0",
+    "com.oakus.frameworks.of2.utils": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Utils#2.1.0",
     "com.unity.2d.animation": "5.0.5",
     "com.unity.2d.pixel-perfect": "4.0.1",
     "com.unity.2d.psdimporter": "4.0.2",
@@ -11,6 +20,7 @@
     "com.unity.ide.visualstudio": "2.0.8",
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.postprocessing": "3.1.1",
+    "com.unity.render-pipelines.universal": "10.5.0",
     "com.unity.test-framework": "1.1.24",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.4.8",

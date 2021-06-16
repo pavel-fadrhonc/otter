@@ -3,6 +3,14 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Library/PackageCache/com.coffee.git-dependency-resolver@d4fc38c92f</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.audio@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.base@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.basemono@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.classextensions@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.debugtools@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.physics@1d278e3f26</Path>
+      <Path>Library/PackageCache/com.oakus.frameworks.of2.utils@1d278e3f26</Path>
       <Path>Library/PackageCache/com.unity.2d.animation@5.0.5</Path>
       <Path>Library/PackageCache/com.unity.2d.common@4.0.3</Path>
       <Path>Library/PackageCache/com.unity.2d.path@4.0.1</Path>
@@ -14,13 +22,16 @@
       <Path>Library/PackageCache/com.unity.ide.rider@2.0.7</Path>
       <Path>Library/PackageCache/com.unity.ide.visualstudio@2.0.8</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.3</Path>
-      <Path>Library/PackageCache/com.unity.mathematics@1.1.0</Path>
+      <Path>Library/PackageCache/com.unity.mathematics@1.2.1</Path>
       <Path>Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0</Path>
       <Path>Library/PackageCache/com.unity.postprocessing@3.1.1</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.core@10.5.0</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.universal@10.5.0</Path>
+      <Path>Library/PackageCache/com.unity.searcher@4.3.2</Path>
+      <Path>Library/PackageCache/com.unity.shadergraph@10.5.0</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.24</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@3.0.6</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.4.8</Path>
-      <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
     <explicitExcludes>

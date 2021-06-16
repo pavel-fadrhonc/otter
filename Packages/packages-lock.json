@@ -1,5 +1,103 @@
 {
   "dependencies": {
+    "com.coffee.git-dependency-resolver": {
+      "version": "https://github.com/mob-sakai/GitDependencyResolverForUnity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d4fc38c92fb139b4184912f20556ab27a3b519fa"
+    },
+    "com.oakus.frameworks.of2.assetmanagement": {
+      "version": "file:.com.oakus.frameworks.of2.assetmanagement@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.oakus.frameworks.of2.audio": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Audio#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.base": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Base#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.basemono": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/BaseMono#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.classextensions": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/ClassExtensions#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.debuglog": {
+      "version": "file:.com.oakus.frameworks.of2.debuglog@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.oakus.frameworks.of2.debugtools": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/DebugTools#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.extenject-core": {
+      "version": "file:.com.oakus.frameworks.of2.extenject-core@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.oakus.frameworks.of2.extenject-extras": {
+      "version": "file:.com.oakus.frameworks.of2.extenject-extras@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.oakus.frameworks.of2.physics": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Physics#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
+    "com.oakus.frameworks.of2.pool": {
+      "version": "file:.com.oakus.frameworks.of2.pool@2.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.oakus.frameworks.of2.unirx": {
+      "version": "file:.com.oakus.frameworks.of2.unirx@7.1.0",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.1"
+      }
+    },
+    "com.oakus.frameworks.of2.utils": {
+      "version": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Utils#2.1.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "hash": "1d278e3f260af4fad4a733d1148e1271a726130f"
+    },
     "com.unity.2d.animation": {
       "version": "5.0.5",
       "depth": 0,
@@ -114,7 +212,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.1.0",
+      "version": "1.2.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -133,6 +231,43 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.render-pipelines.core": {
+      "version": "10.5.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.render-pipelines.universal": {
+      "version": "10.5.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.1.0",
+        "com.unity.render-pipelines.core": "10.5.0",
+        "com.unity.shadergraph": "10.5.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.searcher": {
+      "version": "4.3.2",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.shadergraph": {
+      "version": "10.5.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.5.0",
+        "com.unity.searcher": "4.3.2"
       },
       "url": "https://packages.unity.com"
     },

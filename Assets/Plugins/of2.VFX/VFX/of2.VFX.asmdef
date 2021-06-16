@@ -1,0 +1,21 @@
+{
+    "name": "of2.VFX",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8f7b33338fec16140b1c041c951a378a",
+        "GUID:9b2c24e170966eb46b1b024237dd0e51",
+        "GUID:dda45e0c61c15ff488af42529ccf35a3",
+        "GUID:5a47ddb90df5df94884a08e2d9a36e78",
+        "GUID:47eb96f0582a3ec45971c569acb5f6a8",
+        "GUID:2061fd7ebf33e094db3a76b9edbb1f84"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

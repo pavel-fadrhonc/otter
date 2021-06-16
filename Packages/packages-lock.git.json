@@ -1,0 +1,34 @@
+{
+    "dependencies": [
+        {
+            "name": "com.oakus.frameworks.of2.extenject-core",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Extenject-Core#2.1.0"
+        },
+        {
+            "name": "com.oakus.frameworks.of2.extenject-extras",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Extenject-Extras#2.1.0"
+        },
+        {
+            "name": "com.oakus.frameworks.of2.assetmanagement",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/AssetManagement#2.1.0"
+        },
+        {
+            "name": "com.oakus.frameworks.of2.pool",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Pool#2.1.0"
+        },
+        {
+            "name": "com.oakus.frameworks.of2.debuglog",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/DebugLog#2.1.0"
+        },
+        {
+            "name": "com.oakus.frameworks.of2.unirx",
+            "hash": "1d278e3f260af4fad4a733d1148e1271a726130f",
+            "url": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/UniRx#2.1.0"
+        }
+    ]
+}

@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1528226546685410651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6864638598330397909}
+  - component: {fileID: 8299587054598999784}
+  m_Layer: 0
+  m_Name: AudioManagerData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6864638598330397909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528226546685410651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8299587054598999784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528226546685410651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b338c5b3ab2964b8052008054aff3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TreeData:
+    m_Depth: 0
+    m_ID: Master
+    m_DefaultBus: {fileID: 24300002, guid: 855f2bd8517919f41ba9ec23c09baeb7, type: 2}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 1
+    m_ParentUniqueId: -1
+    m_OrderIdx: -1
+    m_BlockedByCategoryIds: 
+    m_AudioData: []
+    m_AudioDataWeight: 
+    m_EnabledFilters: 0
+  m_SavedTree:
+  - m_Depth: 0
+    m_ID: Master
+    m_DefaultBus: {fileID: 24300002, guid: 855f2bd8517919f41ba9ec23c09baeb7, type: 2}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 1
+    m_ParentUniqueId: -1
+    m_OrderIdx: -1
+    m_BlockedByCategoryIds: 
+    m_AudioData: []
+    m_AudioDataWeight: 
+    m_EnabledFilters: 0
+  - m_Depth: 1
+    m_ID: Music
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 2
+    m_ParentUniqueId: 1
+    m_OrderIdx: 0
+    m_BlockedByCategoryIds: 
+    m_AudioData: []
+    m_AudioDataWeight: 
+    m_EnabledFilters: 0
+  - m_Depth: 1
+    m_ID: SFX
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 3
+    m_ParentUniqueId: 1
+    m_OrderIdx: 1
+    m_BlockedByCategoryIds: 00000000
+    m_AudioData:
+    - 
+    m_AudioDataWeight: 01000000
+    m_EnabledFilters: 0
+  - m_Depth: 2
+    m_ID: AU
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: 0.2
+    m_FiltersHolder: []
+    m_UniqueId: 269152545
+    m_ParentUniqueId: 3
+    m_OrderIdx: 0
+    m_BlockedByCategoryIds: 
+    m_AudioData:
+    - Assets/Resources/Audio/au1.mp3
+    - Assets/Resources/Audio/au2.mp3
+    - Assets/Resources/Audio/au3.mp3
+    - Assets/Resources/Audio/au4.mp3
+    - Assets/Resources/Audio/au5.mp3
+    - Assets/Resources/Audio/au6.mp3
+    - Assets/Resources/Audio/au7.mp3
+    - Assets/Resources/Audio/au8.mp3
+    m_AudioDataWeight: 0100000001000000010000000100000001000000010000000100000001000000
+    m_EnabledFilters: 0
+  - m_Depth: 2
+    m_ID: Aaah
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 0.185
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 1912152884
+    m_ParentUniqueId: 3
+    m_OrderIdx: 1
+    m_BlockedByCategoryIds: 
+    m_AudioData:
+    - Assets/Resources/Audio/aaah1.mp3
+    - Assets/Resources/Audio/aaah2.mp3
+    - Assets/Resources/Audio/aaah3.mp3
+    - Assets/Resources/Audio/aaah4.mp3
+    - Assets/Resources/Audio/aaah5.mp3
+    m_AudioDataWeight: 0100000001000000010000000100000001000000
+    m_EnabledFilters: 0
+  - m_Depth: 2
+    m_ID: cacht
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 1
+    m_PitchRandomizationValue: 0.217
+    m_Volume: 0.28
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: 0.5
+    m_FiltersHolder: []
+    m_UniqueId: 1815625119
+    m_ParentUniqueId: 3
+    m_OrderIdx: 2
+    m_BlockedByCategoryIds: 
+    m_AudioData:
+    - Assets/Resources/Audio/398032__swordofkings128__splash_cut.wav
+    m_AudioDataWeight: 01000000
+    m_EnabledFilters: 0
+  - m_Depth: 1
+    m_ID: Characters
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 4
+    m_ParentUniqueId: 1
+    m_OrderIdx: 2
+    m_BlockedByCategoryIds: 
+    m_AudioData: []
+    m_AudioDataWeight: 
+    m_EnabledFilters: 0
+  - m_Depth: 1
+    m_ID: VO
+    m_DefaultBus: {fileID: 0}
+    m_SoundRandomization: 0
+    m_PitchRandomization: 0
+    m_PitchRandomizationValue: 0
+    m_Volume: 1
+    m_StereoPan: 0
+    m_Loop: 0
+    m_NextAllowedAudioDelay: -1
+    m_FiltersHolder: []
+    m_UniqueId: 5
+    m_ParentUniqueId: 1
+    m_OrderIdx: 3
+    m_BlockedByCategoryIds: 
+    m_AudioData: []
+    m_AudioDataWeight: 
+    m_EnabledFilters: 0

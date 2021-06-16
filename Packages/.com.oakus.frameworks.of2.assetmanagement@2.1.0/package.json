@@ -1,0 +1,13 @@
+{
+  "name": "com.oakus.frameworks.of2.assetmanagement",
+  "displayName": "of2 Asset Management",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Asset Manager",
+  "category": "Unity",
+
+  "gitDependencies": {
+    "com.oakus.frameworks.of2.extenject-core":"https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Extenject-Core#2.1.0"
+  }
+
+}

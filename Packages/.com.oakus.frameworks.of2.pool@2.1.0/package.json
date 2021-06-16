@@ -1,0 +1,12 @@
+{
+  "name": "com.oakus.frameworks.of2.pool",
+  "displayName": "of2 Pool",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Pooling for MonoBehaviours",
+	"category": "Unity",
+	
+	"gitDependencies": {
+		"com.oakus.frameworks.of2.basemono":"https://github.com/pavel-fadrhonc/of2.git?path=/Packages/BaseMono#2.1.0"
+	}
+}

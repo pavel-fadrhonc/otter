@@ -1,0 +1,18 @@
+{
+    "name": "Zenject-Signals-Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ebe37fe3f3345ff4fae804697d489325"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+  "name": "com.oakus.frameworks.of2.extenject-extras",
+  "displayName": "of2 Extenject-Extras",
+  "version": "2.1.0",
+  "unity": "2020.3",
+  "description": "Extenject extra scipts with some additions by oakus",
+  "keywords": [
+    "dependency injection",
+    "unity"
+  ],
+	"category": "Unity",
+	
+	"gitDependencies": {
+		"com.oakus.frameworks.of2.extenject-core":"https://github.com/pavel-fadrhonc/of2.git?path=/Packages/Extenject-Core#2.1.0",
+		"com.oakus.frameworks.of2.unirx": "https://github.com/pavel-fadrhonc/of2.git?path=/Packages/UniRx#2.1.0"
+	}
+}

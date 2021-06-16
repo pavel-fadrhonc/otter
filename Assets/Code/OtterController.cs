@@ -1,6 +1,9 @@
 ﻿using System;
 using o2f.Physics;
+using of2.Audio;
+using of2.VFX;
 using UnityEngine;
+using Zenject;
 
 namespace DefaultNamespace
 {
@@ -58,6 +61,8 @@ namespace DefaultNamespace
 
         public EOtterControlType otterControlType;
 
+        public Vector2 joinedTimeForAaaahSpan = new Vector2(2f, 5f);
+
         [Header("Joint setup")] 
         public float jointBreakingForce;
         public float hitObstacleJointBreakForce = 0.1f;
@@ -110,6 +115,12 @@ namespace DefaultNamespace
 
         private float _breakingForceRestoreTime;
 
+        private float _joinedTime;
+        private float _nextJoinedTimeForAaaahTime;
+
+        [Inject] private IVFXManager _vfxManager;
+        [Inject] private IAudioManager _audioManager;
+
         private const string ReachHandsAnimParamName = "ReachHands";
         private const string LeftLegSwimAnimParamName = "LeftLegSwim";
         private const string RightLegSwimAnimParamName = "RightLegSwim";
@@ -145,6 +156,10 @@ namespace DefaultNamespace
             GetHit();
             if (_otherOtter != null)
                 _otherOtter.GetHit();
+
+            _vfxManager.PlayVFX(VFXList.EVFX.HIT, VFXManager.PlayConfig.GetNewFacingUp(collision.contacts[0].point));
+            _audioManager.PlayAudio((int) AudioList.Sounds.AU);
+                
             HitEvent?.Invoke();
         }
 
@@ -227,7 +242,7 @@ namespace DefaultNamespace
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _animator.SetTrigger(LeftLegSwimAnimParamName);
                         leftLegRippleParticleSystem.Play();
-                        Locator.Instance.AudioManager.PlaySplashSound();
+                        _audioManager.PlayAudio((int) AudioList.Sounds.CACHT);
                         MovedEvent?.Invoke();
                     }
 
@@ -236,7 +251,7 @@ namespace DefaultNamespace
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
                         _animator.SetTrigger(RightLegSwimAnimParamName);
                         rightLegRippleParticleSystem.Play();
-                        Locator.Instance.AudioManager.PlaySplashSound();
+                        _audioManager.PlayAudio((int) AudioList.Sounds.CACHT);
                         MovedEvent?.Invoke();
                     }
 
@@ -257,7 +272,7 @@ namespace DefaultNamespace
                     break;
                 
                 case EOtterState.Joined:
-                    if (JoinedType == EJoinedType.Left && _input.LeftLeg)
+                    if (JoinedType == EJoinedType.Left && _input.LeftLeg || _input.RightLeg)
                     {
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _rigidbody.AddForceAtPosition(leftLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
@@ -268,11 +283,11 @@ namespace DefaultNamespace
                         leftLegRippleParticleSystem.Play();
                         rightLegRippleParticleSystem.Play();
                         
-                        Locator.Instance.AudioManager.PlaySplashSound();
+                        _audioManager.PlayAudio((int) AudioList.Sounds.CACHT);
                         
                         MovedEvent?.Invoke();
                     }
-                    else if (JoinedType == EJoinedType.Right && _input.RightLeg)
+                    else if (JoinedType == EJoinedType.Right && _input.RightLeg || _input.LeftLeg)
                     {
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, leftLegForcePoint.position, ForceMode2D.Impulse);
                         _rigidbody.AddForceAtPosition(rightLegForcePoint.right * rotateStrength * Time.fixedDeltaTime, rightLegForcePoint.position , ForceMode2D.Impulse);
@@ -283,9 +298,17 @@ namespace DefaultNamespace
                         leftLegRippleParticleSystem.Play();
                         rightLegRippleParticleSystem.Play();
                         
-                        Locator.Instance.AudioManager.PlaySplashSound();
+                        _audioManager.PlayAudio((int) AudioList.Sounds.CACHT);
                         
                         MovedEvent?.Invoke();
+                    }
+
+                    _joinedTime += Time.deltaTime;
+                    if (_joinedTime > _nextJoinedTimeForAaaahTime)
+                    {
+                        _audioManager.PlayAudio((int) AudioList.Sounds.AAAH);
+                        _joinedTime = 0;
+                        _nextJoinedTimeForAaaahTime = joinedTimeForAaaahSpan.Random();
                     }
 
                     break;
@@ -324,7 +347,8 @@ namespace DefaultNamespace
                     rightHandSender.Enabled = leftHandSender.Enabled = false;
                     break;
                 case EOtterState.Joined:
-
+                    _joinedTime = 0;
+                    _nextJoinedTimeForAaaahTime = joinedTimeForAaaahSpan.Random();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(otterState), otterState, null);

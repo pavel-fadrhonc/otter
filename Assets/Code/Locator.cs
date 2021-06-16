@@ -11,7 +11,7 @@ namespace DefaultNamespace
         public OtterController Otter1 { get; private set; }
         public OtterController Otter2 { get; private set; }
         
-        public AudioManager AudioManager { get; private set; }
+        public CustomAudioManager AudioManager { get; private set; }
         
         public ChillStat ChillStat { get; private set; }
 
@@ -42,7 +42,7 @@ namespace DefaultNamespace
         {
             Otter1 = FindObjectsOfType<OtterController>().First(o => o.otterControlType == EOtterControlType.Otter1);
             Otter2 = FindObjectsOfType<OtterController>().First(o => o.otterControlType == EOtterControlType.Otter2);
-            AudioManager = FindObjectOfType<AudioManager>();
+            AudioManager = FindObjectOfType<CustomAudioManager>();
             ChillStat = FindObjectOfType<ChillStat>();
         }
     }

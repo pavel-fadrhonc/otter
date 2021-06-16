@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 
 namespace DefaultNamespace
@@ -9,8 +10,8 @@ namespace DefaultNamespace
         [Tooltip("At which point during the chill meter do we start lerping into the effects")][Range(0f,1f)]
         private float chillAmountForStart = 0.5f;
 
-        public PostProcessVolume normalPostProcessVolume;
-        public PostProcessVolume megaChillPostProcessVolume;
+        public Volume normalPostProcessVolume;
+        public Volume megaChillPostProcessVolume;
 
         public AudioClip megaChillAudioClip;
 
