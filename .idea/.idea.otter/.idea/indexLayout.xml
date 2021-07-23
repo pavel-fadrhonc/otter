@@ -3,6 +3,7 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>Assets</Path>
       <Path>Library/PackageCache/com.coffee.git-dependency-resolver@d4fc38c92f</Path>
       <Path>Library/PackageCache/com.oakus.frameworks.of2.audio@1d278e3f26</Path>
       <Path>Library/PackageCache/com.oakus.frameworks.of2.base@1d278e3f26</Path>
@@ -32,12 +33,14 @@
       <Path>Library/PackageCache/com.unity.test-framework@1.1.24</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@3.0.6</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.4.8</Path>
+      <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Build</Path>
+      <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
       <Path>UserSettings</Path>

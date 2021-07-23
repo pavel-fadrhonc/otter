@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMat
+  m_Name: WaterMatPost
   m_Shader: {fileID: 4800000, guid: 4b46be99d57df87468cf1d989fa87c89, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -70,26 +70,27 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlowSpeed: -0.01
-    - _FoamPower: 0.31
-    - _FoamSlimness: 0.7
-    - _FoamTreshold: 0.59
+    - _FoamPower: 0.7
+    - _FoamSlimness: 2.9
+    - _FoamTreshold: 9.06
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NearObjectAddtiveFactor: 0.35
+    - _NearObjectAddtiveFactor: 0.84
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PosterizePower: 47
-    - _SimpleNoiseColorScale: 1.95
-    - _SimpleNoiseScale: 93.65
+    - _PosterizeBool: 1
+    - _PosterizePower: 31.77
+    - _SimpleNoiseColorScale: -0.53
+    - _SimpleNoiseScale: 123.61
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _VoronoiScale: 19.97
-    - _VoronoiSpeed: 0.1
+    - _VoronoiScale: 14.84
+    - _VoronoiSpeed: 0.8
     - _WorldSpeedScale: 0
     - _ZWrite: 1
     - __dirty: 0
@@ -98,10 +99,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _FoamColor: {r: 0, g: 0.4733429, b: 1, a: 1}
     - _FoamTint: {r: 1, g: 1, b: 1, a: 1}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0, g: 0.2681007, b: 1, a: 1}
-    - _WaterColor: {r: 0, g: 0.5591514, b: 1, a: 1}
+    - _WaterColor: {r: 0, g: 0.5502035, b: 0.9811321, a: 1}
     - _WaterTint: {r: 0, g: 0.42298532, b: 1, a: 1}
     - _White: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

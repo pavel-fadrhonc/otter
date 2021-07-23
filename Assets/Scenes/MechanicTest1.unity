@@ -1310,7 +1310,7 @@ MonoBehaviour:
   isGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0
   sharedProfile: {fileID: 11400000, guid: d1f879681182c0a4ebad54e1f7dffa13, type: 2}
 --- !u!1 &1272864132
 GameObject:
@@ -2020,7 +2020,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 557265a4972c211468f807627fc58f2e, type: 2}
+  - {fileID: 2100000, guid: 45892a53f715c0747ac5ca5c312536cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
